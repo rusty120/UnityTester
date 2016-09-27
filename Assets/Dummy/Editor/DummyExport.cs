@@ -33,8 +33,14 @@ public class DummyExport : ScriptableObject {
   public static void DownloadDummySDK() {
     WebClient client = new WebClient();
     Debug.Log("Download file");
-    client.DownloadFile("https://docs.google.com/uc?export=download&id=0B-JHy47z_9LTTUo1Y0NKOURFeGc", "Assets/Dummy/Plugins/downloaded_sdk.txt");
+    client.DownloadFile("https://docs.google.com/uc?export=download&id=0B-JHy47z_9LTTUo1Y0NKOURFeGc", 
+      "Assets/Dummy/Plugins/downloaded_sdk.txt");
     Debug.Log("Downloading");
+    if (File.Exists("Assets/Dummy/Plugins/downloaded_sdk.txt")) {
+      Debug.Log("success");
+    } else {
+      Debug.Log("nope");
+    }
   }
 
   public static void CloudBuildPreHook( )
